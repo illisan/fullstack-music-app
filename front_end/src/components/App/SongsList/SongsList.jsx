@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, } from "react-router-dom"
+import './SongList.css';
 
 class SongsList extends Component {
     render() {
@@ -10,8 +11,8 @@ class SongsList extends Component {
         let songsJSX = songsArr.map((song, i) => {
             console.log(song)
             return <div key={song.id}>
-                <h2><Link to={`/${song.id}`}>{song.title}</Link></h2>
-                <button onClick={() => { this.props.playAudio(song.id)}}>Play</button>
+                    <h2><Link to={`/${song.id}`}>{song.title}</Link></h2>
+                    <button onClick={() => { this.props.playAudio(song.id) }}>Play</button>
                 
             </div>
         })

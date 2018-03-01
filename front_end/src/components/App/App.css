@@ -1,0 +1,21 @@
+  .hero {
+    background:url(/bg_cover.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+    padding-top: 10rem;
+    text-align: center;
+    padding-top:0;
+  }
+
+.btn-floating, .btn-large {
+  background-color:rgba(247, 246, 144, 0.63)
+}
+
+.audioPlyr {
+    background-color: rgba(2, 2, 2, 0.8);
+}
+
+.material-icons {
+    font-size: 4rem;
+}
