@@ -11,7 +11,7 @@ class SongDetails extends Component {
         return (
             <div>
                 <h2>Title: {songs[song.songId].title}</h2>
-                <h3>{songs[song.songId].description}</h3>
+                <p className="description">{songs[song.songId].description}</p>
                 <button onClick={() => { this.props.playAudio([song.songId])}}>{this.props.playing ? 'Pause' : 'Play'}</button>
             </div>
         )

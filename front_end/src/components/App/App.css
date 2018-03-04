@@ -25,14 +25,22 @@ button {
 }
 .songContent {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: baseline;
-  padding-top: 20%;
+  padding-top: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 .playerTitle {
   padding-top: 5%;;
   color: darkgrey;
 }
 .playerTitle .child {
+  color: white;
+}
+
+.description {
+  font-size: 2rem;
+  background-color: rgba(2, 2, 2, 0.8);
   color: white;
 }
