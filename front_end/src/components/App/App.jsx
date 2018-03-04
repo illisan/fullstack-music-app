@@ -29,7 +29,7 @@ class App extends Component {
 
 
   componentDidUpdate() {
-    this.audioPlayer.load()
+    // this.audioPlayer.load()
     if (this.state.playing) this.audioPlayer.play()
     else this.audioPlayer.pause()
   }

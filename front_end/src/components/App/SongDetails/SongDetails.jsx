@@ -18,4 +18,4 @@ class SongDetails extends Component {
     }
 }
 
-export default SongDetails;
+export default SongDetails; 
