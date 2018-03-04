@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import SongsList from './SongsList/SongsList';
 import SongDetails from './SongDetails/SongDetails';
 import axios from 'axios'
+import './App.css';
 
 class App extends Component {
   constructor() {
@@ -29,7 +30,7 @@ class App extends Component {
 
 
   componentDidUpdate() {
-    // this.audioPlayer.load()
+    this.audioPlayer.load()
     if (this.state.playing) this.audioPlayer.play()
     else this.audioPlayer.pause()
   }
@@ -63,40 +64,43 @@ class App extends Component {
             <audio ref={(self) => { this.audioPlayer = self }}>
               <source src={this.state.songs[this.state.currentSong].source} />
             </audio>
+            <div className="player">
+              
+          <div className="buttons">
+            <button class="waves-effect waves-light btn" type="button" onClick={
+                () => { this.changeSong(this.state.currentSong - 1) }}
+                disabled={this.state.currentSong === 0}>Prev</button>
 
             <button type="button" onClick={
               () => this.playAudio(this.state.currentSong)}>
               {this.state.playing ? 'Pause' : 'Play'} </button>
+              
 
-            <button type="button" onClick={
-              () => { this.changeSong(this.state.currentSong - 1) }}
-              disabled={this.state.currentSong === 0}>Prev
-        </button>
+              <button type="button" onClick={
+                () => { this.changeSong(this.state.currentSong + 1) }}
+                disabled={this.state.currentSong === this.state.songs.length - 1}> Next</button>
 
-            <button type="button" onClick={
-              () => { this.changeSong(this.state.currentSong + 1) }}
-              disabled={this.state.currentSong === this.state.songs.length - 1}> Next
-        </button>
+        </div>
+              <h4 className="playerTitle"> Currently Playing:<span className="playerTitle child"> {this.state.songs[this.state.currentSong].title}</span></h4>
+            </div>
+            <Switch>
+              <Route exact path="/" render={() =>
+                <SongsList
+                  songs={this.state.songs}
+                  playAudio={this.playAudio}
+                  currentSong={this.state.currentSong}
+                  playing={this.state.playing}
+                />} />
 
-            <h3> Currently playing: {this.state.songs[this.state.currentSong].title}</h3>
-          <Switch>
-            <Route exact path="/" render={() =>
-              <SongsList
-                songs={this.state.songs}
-                playAudio={this.playAudio}
-                currentSong={this.state.currentSong}
-                playing={this.state.playing}
-              />} />
+              <Route path='/:songId' render={(props) =>
+                <SongDetails songs={this.state.songs}
+                  currentSong={this.state.currentSong}
+                  playAudio={this.playAudio}
+                  playing={this.state.playing}
+                  {...props}
 
-            <Route path='/:songId' render={(props) =>
-              <SongDetails songs={this.state.songs}
-                currentSong={this.state.currentSong}
-                playAudio={this.playAudio}
-                playing={this.state.playing}
-                {...props}
-
-              />} />
-              </Switch>
+                />} />
+            </Switch>
           </div>
         }
       </div>

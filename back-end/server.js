@@ -12,14 +12,6 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json())
 
-// let songs = {
-//     song: [
-//         {
-//             title: "some song",
-//             source: "/olympian.mp3",
-//         }
-//     ]
-// }
 
 function Song(source, title, description, id) {
     this.source = source;
@@ -34,15 +26,9 @@ const songs = [
     new Song('/transmission.mp3', 'Transmission', 'Energetic electronic melody featuring modern drums, snaking bass and explosive electric guitar. Tempo: 120bpm', 2)
 ]
 
-// fs.readFile('songs.json', (err, data) => {
-//     if (data) {
-//         songs = JSON.parse(data)
-//     }
-// })
 
 app.get('/getsongs', (req, res) => {
     res.send(songs)
-    // console.log(songs)
 })
 
 app.listen(port, () => {
