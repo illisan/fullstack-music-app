@@ -15,8 +15,8 @@ class App extends Component {
     }
   }
 
-
-  componentDidMount() {
+ 
+  componentDidMount() {   //axios request to pull data from backend.Data is pulled in form of an array.
     console.log(this.state.songs)
 
     axios.get(`http://localhost:8080/getsongs`)
@@ -29,7 +29,7 @@ class App extends Component {
   }
 
 
-  componentDidUpdate() {
+  componentDidUpdate() { //saving state of play/pause  prev/next functionality.
     this.audioPlayer.load()
     if (this.state.playing) this.audioPlayer.play()
     else this.audioPlayer.pause()
