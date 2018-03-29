@@ -12,7 +12,7 @@ a {
 }
 
 .buttons {
-  padding-top: 5%;
+  /* padding-top: 5%; */
   display: flex;
   justify-content: space-evenly;
  
@@ -31,13 +31,9 @@ button {
   margin-left: 10%;
   margin-right: 10%;
 }
-.playerTitle {
-  padding-top: 5%;;
-  color: darkgrey;
-}
-.playerTitle .child {
-  color: white;
-}
+ h2,h4 {
+   color: white;
+ }
 
 .description {
   font-size: 2rem;

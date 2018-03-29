@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const port = process.argv[2] || 8081
+const port = process.argv[2] || 8080
 
 app.use((req, res, next) => {  // CORS
     res.header("Access-Control-Allow-Origin", "*");

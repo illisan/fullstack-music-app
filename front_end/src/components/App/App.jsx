@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import SongsList from './SongsList/SongsList';
 import SongDetails from './SongDetails/SongDetails';
+import { Icon } from 'semantic-ui-react'
 import axios from 'axios'
 import './App.css';
 
@@ -15,7 +16,7 @@ class App extends Component {
     }
   }
 
- 
+
   componentDidMount() {   //axios request to pull data from backend.Data is pulled in form of an array.
     console.log(this.state.songs)
 
@@ -65,23 +66,26 @@ class App extends Component {
               <source src={this.state.songs[this.state.currentSong].source} />
             </audio>
             <div className="player">
-              
-          <div className="buttons">
-            <button class="waves-effect waves-light btn" type="button" onClick={
-                () => { this.changeSong(this.state.currentSong - 1) }}
-                disabled={this.state.currentSong === 0}>Prev</button>
+              <h4 className="playerTitle"> Currently Playing:
+              <span className="playerTitle child"> {this.state.songs[this.state.currentSong].title}</span>
+              </h4>
+              <div className="buttons">
+                <a type="button" onClick={
+                  () => { this.changeSong(this.state.currentSong - 1) }}>
+                  <Icon disabled={this.state.currentSong === 0} name="fast backward" size="huge" />
+                </a>
 
-            <button type="button" onClick={
-              () => this.playAudio(this.state.currentSong)}>
-              {this.state.playing ? 'Pause' : 'Play'} </button>
-              
+                <a type="button" onClick={
+                  () => this.playAudio(this.state.currentSong)}>
+                  {this.state.playing ? <Icon name="pause" size="huge" /> : <Icon name="play" size="huge" />}
+                </a>
 
-              <button type="button" onClick={
-                () => { this.changeSong(this.state.currentSong + 1) }}
-                disabled={this.state.currentSong === this.state.songs.length - 1}> Next</button>
+                <a type="button" onClick={
+                  () => { this.changeSong(this.state.currentSong + 1) }}>
+                  <Icon disabled={this.state.currentSong === this.state.songs.length - 1} name="fast forward" size="huge" />
+                </a>
 
-        </div>
-              <h4 className="playerTitle"> Currently Playing:<span className="playerTitle child"> {this.state.songs[this.state.currentSong].title}</span></h4>
+              </div>
             </div>
             <Switch>
               <Route exact path="/" render={() =>
