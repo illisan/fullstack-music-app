@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import SongsList from './SongsList/SongsList';
 import SongDetails from './SongDetails/SongDetails';
+import Controls from './Controls/Controls'
 import { Icon } from 'semantic-ui-react'
 import axios from 'axios'
 import './App.css';
