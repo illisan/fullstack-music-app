@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, } from "react-router-dom"
+// import { Link, } from "react-router-dom"
 import './SongList.css';
 import { Icon } from 'semantic-ui-react'
 
@@ -14,7 +14,8 @@ class SongsList extends Component {
             return <div key={song.id}>
             <div className="containter">
                 <div className="songContent">
-                    <h2 className="sonListTitle"><Link to={`/${song.id}`}>{song.title}</Link></h2>
+                <h2 className="songListTitle">{song.title}</h2>
+                    {/* <h2 className="sonListTitle"><Link to={`/${song.id}`}>{song.title}</Link></h2> */}
                         <a onClick={() => { this.props.playAudio(song.id) }}>
                             {this.props.playing ? <Icon name="pause" size="huge" /> : <Icon name="play" size="huge"/>}
                         </a>
